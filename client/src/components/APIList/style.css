@@ -1,0 +1,19 @@
+.container {
+	border: 1px solid lightblue;
+	background-color: rgb(252, 221, 97);
+	margin: 10px 150px 20px 150px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+	border-radius: 2.5px;
+}
+
+.container:hover {
+	opacity: 0.25;
+}
+
+.header{
+	padding-top: 25px;
+	padding-left: 150px;
+	padding-bottom: 15px;
+}

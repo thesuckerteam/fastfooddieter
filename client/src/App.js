@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import './App.css';
-import Navbar from './components/NavBar';
+import Navbar from './components/NavBar/NavBar';
 import {Route, Switch} from 'react-router-dom';
-import Home from "./components/Home"
+import Home from "./components/APIList/Home"
 import FoodVisualization from "./components/FoodVisualization/FoodVisualization"
 
 class App extends Component {

@@ -17,7 +17,7 @@ export default class FoodHistogram extends Component {
 	}
 	render() {	
 		return (
-			<div className='center-histogram'>
+			<div className='center'>
                 <div className="title">
 			        <h3>{this.props.title}</h3>
 			    </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { FastFoodConsumer } from "../../context";
 import FoodHistogram from "./FoodHistogram";
+import "./style.css";
 
 export default function FoodVisualization() {
 	return (
