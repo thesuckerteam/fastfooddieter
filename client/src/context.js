@@ -4,44 +4,55 @@ const FastFoodContext = React.createContext();
 
 class FastFoodProvider extends Component {
 	state = {
-		average_parcel: [],
+        salads: [],
+        rice: [],
+        chickens: [],
+        burger: [],
+        calories_salads: [],
+        calories_chickens: [],
+        calories_rice: [],
+        calories_burger: [],
 	};
-	componentDidMount() {
-	}
-	queryAverageSendType = month => {
-		fetch("http://localhost:5000/api/delivery/average/send-type/" + month)
+	componentDidMount() {}
+	querySalad = () => {
+		fetch("http://localhost:9000/food/salads")
 			.then(data => data.json())
-			.then(res => this.state.average_parcel.push(res));
+			.then(res => this.state.salads.push(res));
 	};
-	queryAverageWeight = month => {
-		fetch("http://localhost:5000/api/delivery/average/weight/" + month)
+	queryRice = () => {
+		fetch("http://localhost:9000/food/rice")
 			.then(data => data.json())
-			.then(res => this.state.average_weight.push(res));
+			.then(res => this.state.rice.push(res));
 	};
-	queryAverageService = month => {
-		fetch("http://localhost:5000/api/delivery/average/service/" + month)
+	queryChicken = () => {
+		fetch("http://localhost:9000/food/chickens")
 			.then(data => data.json())
-			.then(res => this.state.average_service.push(res));
+			.then(res => this.state.chickens.push(res));
 	};
-	queryAverageLocation = month => {
-		fetch("http://localhost:5000/api/delivery/average/location/" + month)
+	queryBurger = () => {
+		fetch("http://localhost:9000/food/burger")
 			.then(data => data.json())
-			.then(res => this.state.average_location.push(res));
+			.then(res => this.state.burger.push(res));
 	};
-	queryAverageWeightLocation = month => {
-		fetch("http://localhost:5000/api/delivery/average/weight-location/" + month)
+	querySalad = calories => {
+		fetch("http://localhost:9000/food/salads/limit-calories/" + calories)
 			.then(data => data.json())
-			.then(res => this.state.average_wl.push(res));
+			.then(res => this.state.calories_salads.push(res));
 	};
-	queryBranchCar = () => {
-		fetch("http://localhost:5000/api/delivery/branch/car")
+	queryChicken = calories => {
+		fetch("http://localhost:9000/food/chickens/limit-calories/" + calories)
 			.then(data => data.json())
-			.then(res => this.state.branch_car.push(res));
+			.then(res => this.state.calories_chickens.push(res));
 	};
-	queryBranchStaff = () => {
-		fetch("http://localhost:5000/api/delivery/branch/staff")
+	queryRice = calories => {
+		fetch("http://localhost:9000/food/rice/limit-calories/" + calories)
 			.then(data => data.json())
-			.then(res => this.state.branch_staff.push(res));
+			.then(res => this.state.calories_rice.push(res));
+	};
+	queryBurger = calories => {
+		fetch("http://localhost:9000/food/burgers/limit-calories/" + calories)
+			.then(data => data.json())
+			.then(res => this.state.calories_burger.push(res));
 	};
 
 	render() {
