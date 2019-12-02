@@ -7,52 +7,62 @@ class FastFoodProvider extends Component {
         salads: [],
         rice: [],
         chickens: [],
-        burger: [],
+        burgers: [],
         calories_salads: [],
         calories_chickens: [],
         calories_rice: [],
-        calories_burger: [],
+        calories_burgers: [],
 	};
-	componentDidMount() {}
+	componentDidMount() {
+        this.queryBurger();
+        this.queryRice();
+        this.queryChicken();
+        this.querySalad();
+        this.querySaladLimit();
+        this.queryChickenLimit();
+        this.queryBurgerLimit();
+        this.queryRiceLimit();
+    }
 	querySalad = () => {
-		fetch("http://localhost:9000/food/salads")
+		fetch("http://localhost:9000/foods/salads")
 			.then(data => data.json())
-			.then(res => this.state.salads.push(res));
+            .then(res => this.state.salads.push(res));
+        console.log(123)
 	};
 	queryRice = () => {
-		fetch("http://localhost:9000/food/rice")
+		fetch("http://localhost:9000/foods/rice")
 			.then(data => data.json())
 			.then(res => this.state.rice.push(res));
 	};
 	queryChicken = () => {
-		fetch("http://localhost:9000/food/chickens")
+		fetch("http://localhost:9000/foods/chickens")
 			.then(data => data.json())
 			.then(res => this.state.chickens.push(res));
 	};
 	queryBurger = () => {
-		fetch("http://localhost:9000/food/burger")
+		fetch("http://localhost:9000/foods/burgers")
 			.then(data => data.json())
-			.then(res => this.state.burger.push(res));
+			.then(res => this.state.burgers.push(res));
 	};
-	querySalad = calories => {
-		fetch("http://localhost:9000/food/salads/limit-calories/" + calories)
+	querySaladLimit = calories => {
+		fetch("http://localhost:9000/foods/salads/limit-calories/" + calories)
 			.then(data => data.json())
 			.then(res => this.state.calories_salads.push(res));
 	};
-	queryChicken = calories => {
-		fetch("http://localhost:9000/food/chickens/limit-calories/" + calories)
+	queryChickenLimit = calories => {
+		fetch("http://localhost:9000/foods/chickens/limit-calories/" + calories)
 			.then(data => data.json())
 			.then(res => this.state.calories_chickens.push(res));
 	};
-	queryRice = calories => {
-		fetch("http://localhost:9000/food/rice/limit-calories/" + calories)
+	queryRiceLimit = calories => {
+		fetch("http://localhost:9000/foods/rice/limit-calories/" + calories)
 			.then(data => data.json())
 			.then(res => this.state.calories_rice.push(res));
 	};
-	queryBurger = calories => {
-		fetch("http://localhost:9000/food/burgers/limit-calories/" + calories)
+	queryBurgerLimit = calories => {
+		fetch("http://localhost:9000/foods/burgers/limit-calories/" + calories)
 			.then(data => data.json())
-			.then(res => this.state.calories_burger.push(res));
+			.then(res => this.state.calories_burgers.push(res));
 	};
 
 	render() {

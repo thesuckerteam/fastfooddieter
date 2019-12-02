@@ -65,5 +65,34 @@
     margin: 0 1rem;
     padding: 0.5rem 0;
   }
+
+  .box_color{
+    border: 1px solid lightblue;
+    background-color: rgb(252, 221, 97);
+    margin: 10px 150px 20px 150px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+    border-radius: 2.5px;
+  }
+
+  .box_color:hover {
+    opacity: 0.25;
+  }
+
+  .left_corner{
+    padding-top: 25px;
+    padding-left: 150px;
+    padding-bottom: 15px;
+  }
+
+  .title{
+    padding-top: 25px;
+    text-align: center;
+    padding-bottom: 15px;
+  }
+  .bar-chart{
+    padding: 0 120px 0 120px;
+  }
 }
 /* end of navbar */
