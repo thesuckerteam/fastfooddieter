@@ -3,7 +3,8 @@
 	padding-bottom: 15px;
 }
 .bar-chart {
-	padding: 0 120px 0 120px;
+    margin: 0 130px 0 130px;
+    box-shadow: 12px 12px 15px lightgray;
 }
 .center {
     text-align: center;
