@@ -4,7 +4,7 @@ const FastFoodContext = React.createContext();
 
 class FastFoodProvider extends Component {
 	state = {
-		average_parcel: [],
+		food:[123],
 	};
 	componentDidMount() {
 	}
