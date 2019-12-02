@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Navbar, Nav, Button, FormControl, Form} from 'react-bootstrap';
 
-export default class Navbar extends Component {
+export default class NavbarContainer extends Component {
 	state = {
 		isOpen: false,
 	};
@@ -11,26 +12,16 @@ export default class Navbar extends Component {
 
 	render() {
 		return (
-			<nav className='navbar'>
-				<div className='nav-center'>
-					<div className='nav-header'>
-						<Link to='/'>Fast Food Dieter</Link>
-						<button
-							type='button'
-							className='nav-btn'
-							onClick={this.handleToggle}></button>
-					</div>
-					<ul
-						className={this.state.isOpen ? "nav-links show-nav" : "nav-links"}>
-						<li>
-							<Link to='/'>Home</Link>
-						</li>
-						<li>
-							<Link to='/visualization'>Parcel</Link>
-						</li>
-					</ul>
-				</div>
-			</nav>
+			<Navbar bg="dark" variant="dark">
+				<Navbar.Brand href="#home">Fast Food Dieter</Navbar.Brand>
+				<Nav className="mr-auto">
+				<Nav.Link href="/">APIs</Nav.Link>
+				<Nav.Link href="/">Histogram</Nav.Link>
+				</Nav>
+				<Form inline>
+				</Form>
+			</Navbar>
+
 		);
 	}
 }
