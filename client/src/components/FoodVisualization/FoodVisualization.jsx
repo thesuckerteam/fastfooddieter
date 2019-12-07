@@ -17,25 +17,18 @@ export default function FoodVisualization() {
 					calories_rice,
 					calories_burgers,
 				} = value;
+				console.log(burgers.map(burger => burger.name))
+				console.log(burgers.map(burger => burger.calories))
 				return (
 					<>
 						<FoodHistogram
 							title='Burger'
-							labels={[
-								"kfc pork burger",
-								"kfc beef burger",
-								"kfc fish burger",
-								"mcdonald's pork burger",
-								"mcdonald's beef burger",
-								"mcdonald's fish burger",
-							]}
-							data={[330, 530, 290, 250, 320, 280]}
-							salads={salads}
+							name={burgers.map(burger => burger.name)}
+							calories={burgers.map(burger => burger.calories)}
 						/>
-
 						<FoodHistogram
 							title='Chicken'
-							labels={[
+							name={[
 								"kfc chicken wings",
 								"kfc chicken strips",
 								"kfc chicken drumsticks",
@@ -43,33 +36,30 @@ export default function FoodVisualization() {
 								"bonchon chicken strips",
 								"bonchon chicken drumsticks",
 							]}
-							data={[120, 220, 180, 100, 200, 160]}
-							salads={salads}
+							calories={[120, 220, 180, 100, 200, 160]}
 						/>
 
 						<FoodHistogram
 							title='Salad'
-							labels={[
+							name={[
 								"bonchon caeser salad",
 								"kfc tuna salad",
 								"kfc side salad",
 								"bonchon becon salad",
 								"bonchon chicken salad",
 							]}
-							data={[60, 53, 55, 48, 30 ]}
-							salads={salads}
+							calories={[60, 53, 55, 48, 30 ]}
 						/>
 
 						<FoodHistogram
 							title='Rice'
-							labels={[
+							name={[
 								"kfc fried chicken rice",
 								"kfc roasted chicken rice",
 								"mcdonald fried chicken rice",
 								"mcdonald roasted chicken rice",
 							]}
-							data={[530, 430, 490, 440]}
-							salads={salads}
+							calories={[530, 430, 490, 440]}
 						/>
 					</>
 				);
