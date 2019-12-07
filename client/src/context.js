@@ -15,39 +15,44 @@ class FastFoodProvider extends Component {
 			calories_chickens: [],
 			calories_rice: [],
 			calories_burgers: [],
+			loadingBurger: true,
+			loadingChicken: true,
+			loadingSalad: true,
+			loadingRice: true,
 		};
 	  }
 	
 	componentDidMount() {
         this.queryBurger();
-        // this.queryRice();
-        // this.queryChicken();
-        // this.querySalad();
+        this.queryRice();
+        this.queryChicken();
+        this.querySalad();
         // this.querySaladLimit();
         // this.queryChickenLimit();
         // this.queryBurgerLimit();
-		// this.queryRiceLimit();
+		// this.queryRiceLimit()
     }
 	querySalad = () => {
 		fetch("http://localhost:9000/foods/salads")
 			.then(data => data.json())
-			.then(res => this.state.salads.push(res));
+			.then(res => this.setState({salads: res, loadingSalad: false}));
 	};
 	queryRice = () => {
 		fetch("http://localhost:9000/foods/rice")
 			.then(data => data.json())
-			.then(res => this.state.rice.push(res));
+			.then(res => this.setState({rice: res, loadingRice: false}));
 	};
 	queryChicken = () => {
 		fetch("http://localhost:9000/foods/chickens")
 			.then(data => data.json())
-			.then(res => this.state.chickens.push(res));
+			.then(res => this.setState({chickens: res, loadingChicken: false}));
 	};
 	queryBurger = () => {
 		fetch("http://localhost:9000/foods/burgers")
 			.then(data => data.json())
-			.then(res => this.setState({burgers: res}));
+			.then(res => this.setState({burgers: res, loadingBurger: false}))
 	};
+	
 	querySaladLimit = calories => {
 		fetch("http://localhost:9000/foods/salads/limit-calories/" + calories)
 			.then(data => data.json())

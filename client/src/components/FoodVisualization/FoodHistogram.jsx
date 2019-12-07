@@ -5,11 +5,11 @@ export default class FoodHistogram extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            labels: this.props.name,
+            labels: this.props.name.map(element=>element.name),
 			datasets: [
 				{
 					label: "Calories",
-					data: this.props.calories,
+					data: this.props.name.map(element=>element.calories),
 					backgroundColor: "#F7D679",
 				},
 			],

@@ -2,6 +2,7 @@ import React from "react";
 import { FastFoodConsumer } from "../../context";
 import FoodHistogram from "./FoodHistogram";
 import "./style.css";
+import Loading from "../Loading/Loading";
 
 export default function FoodVisualization() {
 	return (
@@ -12,55 +13,37 @@ export default function FoodVisualization() {
 					rice,
 					chickens,
 					burgers,
-					calories_salads,
-					calories_chickens,
-					calories_rice,
-					calories_burgers,
+					loadingBurger,
+					loadingChicken,
+					loadingSalad,
+					loadingRice,
 				} = value;
-				console.log(burgers.map(burger => burger.name))
-				console.log(burgers.map(burger => burger.calories))
 				return (
 					<>
-						<FoodHistogram
-							title='Burger'
-							name={burgers.map(burger => burger.name)}
-							calories={burgers.map(burger => burger.calories)}
-						/>
-						<FoodHistogram
-							title='Chicken'
-							name={[
-								"kfc chicken wings",
-								"kfc chicken strips",
-								"kfc chicken drumsticks",
-								"bonchon chicken wings",
-								"bonchon chicken strips",
-								"bonchon chicken drumsticks",
-							]}
-							calories={[120, 220, 180, 100, 200, 160]}
-						/>
-
-						<FoodHistogram
-							title='Salad'
-							name={[
-								"bonchon caeser salad",
-								"kfc tuna salad",
-								"kfc side salad",
-								"bonchon becon salad",
-								"bonchon chicken salad",
-							]}
-							calories={[60, 53, 55, 48, 30 ]}
-						/>
-
-						<FoodHistogram
-							title='Rice'
-							name={[
-								"kfc fried chicken rice",
-								"kfc roasted chicken rice",
-								"mcdonald fried chicken rice",
-								"mcdonald roasted chicken rice",
-							]}
-							calories={[530, 430, 490, 440]}
-						/>
+						{loadingBurger === false ? 
+							<FoodHistogram
+								title='Burger'
+								name={burgers}
+							/> : <Loading name="Burger"/>
+						}
+						{loadingChicken === false ? 
+							<FoodHistogram
+								title='Chicken'
+								name={chickens}
+							/> : <Loading name="Chicken"/>
+						}
+						{loadingSalad === false ? 
+							<FoodHistogram
+								title='Salad'
+								name={salads}
+							/> : <Loading name="Salad"/>
+						}
+						{loadingRice === false ? 
+							<FoodHistogram
+								title='Rice'
+								name={rice}
+							/> : <Loading name="Rice"/>
+						}	
 					</>
 				);
 			}}
