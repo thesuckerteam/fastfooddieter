@@ -3,16 +3,21 @@ import React, { Component } from "react";
 const FastFoodContext = React.createContext();
 
 class FastFoodProvider extends Component {
-	state = {
-        salads: [],
-        rice: [],
-        chickens: [],
-        burgers: [],
-        calories_salads: [],
-        calories_chickens: [],
-        calories_rice: [],
-        calories_burgers: [],
-	};
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			salads: [],
+			rice: [],
+			chickens: [],
+			burgers: [],
+			calories_salads: [],
+			calories_chickens: [],
+			calories_rice: [],
+			calories_burgers: [],
+		};
+	  }
+	
 	componentDidMount() {
         this.queryBurger();
         this.queryRice();
@@ -21,13 +26,12 @@ class FastFoodProvider extends Component {
         this.querySaladLimit();
         this.queryChickenLimit();
         this.queryBurgerLimit();
-        this.queryRiceLimit();
+		this.queryRiceLimit();
     }
 	querySalad = () => {
 		fetch("http://localhost:9000/foods/salads")
 			.then(data => data.json())
-            .then(res => this.state.salads.push(res));
-        console.log(123)
+			.then(res => this.state.salads.push(res));
 	};
 	queryRice = () => {
 		fetch("http://localhost:9000/foods/rice")

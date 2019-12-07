@@ -1,11 +1,12 @@
 import React from "react";
 import "./style.css";
+import { MdNearMe } from 'react-icons/md';
 
 export default function Home() {
 	return (
 		<div>
 			<div class="header">
-			<h2>Endpoints:</h2>
+			<h2><MdNearMe/>    Endpoints:</h2>
 			</div>
 			<div class="container">
 				GET: http://(url)/food/salads

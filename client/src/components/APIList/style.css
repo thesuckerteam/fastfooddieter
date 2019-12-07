@@ -2,9 +2,7 @@
 	border: 1px solid lightgray;
 	background-color: rgb(252, 221, 97);
 	margin: 10px 120px 20px 120px;
-	padding-bottom: 15px;
-	padding-top: 15px;
-	padding-left: 15px;
+	padding: 15px 0 15px 15px;
     border-radius: 2.5px;
     opacity: 0.8;
     box-shadow: 10px 5px 8px #888888;
