@@ -44,6 +44,7 @@ export default class FoodCalories extends Component {
 								<DropdownButton variant='warning' title={this.state.typeName}>
 									{FoodItems}
 								</DropdownButton>
+
 								<div className='input'>
 									<input
 										type='text'
@@ -57,11 +58,15 @@ export default class FoodCalories extends Component {
 									variant='secondary'
 									size='lg'
 									block
-									onClick={() => this.setState({ renderTable: true })}>
+									onClick={() =>
+										this.setState({ food: rice, renderTable: true })
+									}>
 									Enter
 								</Button>
 							</div>
-							{this.state.renderTable === true && <FoodTable food={rice} />}
+							{this.state.renderTable === true && (
+								<FoodTable food={this.state.food} />
+							)}
 						</div>
 					);
 				}}

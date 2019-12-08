@@ -6,7 +6,7 @@ export default function Home() {
 	return (
 		<div>
 			<div className="header">
-			<h2><MdNearMe/>    Endpoints:</h2>
+				<h2><MdNearMe/>    Endpoints:</h2>
 			</div>
 			<div className="container">
 				GET: http://(url)/food/salads
