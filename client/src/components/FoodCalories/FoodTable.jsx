@@ -20,7 +20,7 @@ export default class FoodTable extends Component {
 			);
 		});
 		return (
-			<>
+			<div className="table">
 				<Table responsive>
 					<thead>
 						<tr>
@@ -31,7 +31,7 @@ export default class FoodTable extends Component {
 					</thead>
 					<tbody>{foodList}</tbody>
 				</Table>
-			</>
+			</div>
 		);
 	}
 }
