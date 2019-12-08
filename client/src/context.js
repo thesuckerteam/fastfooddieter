@@ -27,10 +27,6 @@ class FastFoodProvider extends Component {
         this.queryRice();
         this.queryChicken();
         this.querySalad();
-        // this.querySaladLimit();
-        // this.queryChickenLimit();
-        // this.queryBurgerLimit();
-		// this.queryRiceLimit()
     }
 	querySalad = () => {
 		fetch("http://localhost:9000/foods/salads")
@@ -52,7 +48,6 @@ class FastFoodProvider extends Component {
 			.then(data => data.json())
 			.then(res => this.setState({burgers: res, loadingBurger: false}))
 	};
-	
 	querySaladLimit = calories => {
 		fetch("http://localhost:9000/foods/salads/limit-calories/" + calories)
 			.then(data => data.json())
@@ -85,4 +80,4 @@ class FastFoodProvider extends Component {
 
 const FastFoodConsumer = FastFoodContext.Consumer;
 
-export { FastFoodContext, FastFoodConsumer, FastFoodProvider };
+export { FastFoodContext, FastFoodConsumer, FastFoodProvider};

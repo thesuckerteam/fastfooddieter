@@ -16,6 +16,7 @@ export default class NavbarContainer extends Component {
 				<Navbar.Brand href="#home">Fast Food Dieter</Navbar.Brand>
 				<Nav className="mr-auto">
 				<Nav.Link href="/">APIs</Nav.Link>
+				<Nav.Link href="/food-calories">Calories</Nav.Link>
 				<Nav.Link href="/visualization/">Histogram</Nav.Link>
 				</Nav>
 				<Form inline>
