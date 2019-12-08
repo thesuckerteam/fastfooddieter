@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { FastFoodConsumer } from "../../context";
+import Table from "react-bootstrap/Table";
 import "./style.css";
+import FoodTable from "./FoodTable";
 
 export default class FoodCalories extends Component {
 	constructor(props) {
@@ -15,14 +17,16 @@ export default class FoodCalories extends Component {
 				{value => {
 					const {
 						calories_salads,
-                        calories_chickens,
-                        calories_rice,
+						calories_chickens,
+						calories_rice,
                         calories_burgers,
-					} = value;
+			            rice,
+                        
+                    } = value;
 					return (
-						<>
-							<h1>helloworld</h1>
-						</>
+						<div className="table">
+							<FoodTable food={rice}/>
+						</div>
 					);
 				}}
 			</FastFoodConsumer>
