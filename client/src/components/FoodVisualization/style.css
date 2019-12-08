@@ -1,6 +1,7 @@
 .title {
 	padding-top: 25px;
-	padding-bottom: 15px;
+    padding-bottom: 15px;
+    font-family: 'Maven Pro', sans-serif;
 }
 .bar-chart {
     margin: 0 130px 0 130px;

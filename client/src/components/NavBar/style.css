@@ -7,6 +7,7 @@
 	padding: 0.75rem 2rem;
 	background: var(--offWhite);
 	z-index: 1;
+	font-family: 'Maven Pro', sans-serif;
 }
 .nav-header {
 	display: flex;
