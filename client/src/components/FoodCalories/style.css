@@ -7,10 +7,10 @@
 }
 .formBox{
     padding: 0 140px 30px 140px;
-    box-shadow: 12px 12px 15px lightgray;
+    box-shadow: 8px 8px 8px lightgray;
     border: 1px solid lightgray;
     border-radius: 10px;
-    margin: 20px 350px 0px 350px;
+    margin: 20px 350px 30px 350px;
 
 }
 .inputGroup {

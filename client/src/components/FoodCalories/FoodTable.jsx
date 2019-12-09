@@ -19,7 +19,7 @@ export default class FoodTable extends Component {
 		});
 		return (
 			<div className='table'>
-				<Table responsive>
+				<Table striped bordered hover siz>
 					<thead>
 						<tr>
 							<th>Number</th>

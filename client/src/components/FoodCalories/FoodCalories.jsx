@@ -56,7 +56,11 @@ export default class FoodCalories extends Component {
 				<Dropdown.Item
 					as='button'
 					onClick={() =>
-						this.setState({ typeName: item, alertSelectInputType: false })
+						this.setState({
+							typeName: item,
+							alertSelectInputType: false,
+							inputText: "",
+						})
 					}>
 					{item}
 				</Dropdown.Item>
