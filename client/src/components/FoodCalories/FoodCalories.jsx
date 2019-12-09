@@ -24,7 +24,7 @@ export default class FoodCalories extends Component {
 
 	handleChange = event => {
 		this.setState({
-			inputText: event.target.value,
+			inputText: event.target.value.replace(/\D/,''),
 		});
 	};
 
@@ -70,6 +70,7 @@ export default class FoodCalories extends Component {
 
 							<input className='input'
 								type='text'
+								value={this.state.inputText}
 								onChange={this.handleChange}
 								placeholder='please insert number of calories'
 							/>
