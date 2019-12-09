@@ -18,19 +18,24 @@ export default class FoodCalories extends Component {
 			food: [],
 			renderTable: false,
 			loadingFood: true,
-			alertPop: false,
+			alertSelectInputType: false,
+			alertInvalidInput: false,
 		};
 	}
 
 	handleChange = event => {
 		this.setState({
-			inputText: event.target.value.replace(/\D/,''),
+			inputText: event.target.value.replace(/\D/, ""),
+			alertInvalidInput: false,
 		});
 	};
 
 	handleEnterClick = () => {
 		if (this.state.typeName === "Select Food Type") {
-			this.setState({ alertPop: true });
+			this.setState({ alertSelectInputType: true });
+		}
+		if (this.state.inputText === "") {
+			this.setState({ alertInvalidInput: true });
 		} else {
 			this.queryFoodLimit(this.state.typeName, this.state.inputText);
 			this.setState({ renderTable: true });
@@ -50,7 +55,9 @@ export default class FoodCalories extends Component {
 			return (
 				<Dropdown.Item
 					as='button'
-					onClick={() => this.setState({ typeName: item , alertPop: false})}>
+					onClick={() =>
+						this.setState({ typeName: item, alertSelectInputType: false })
+					}>
 					{item}
 				</Dropdown.Item>
 			);
@@ -58,8 +65,11 @@ export default class FoodCalories extends Component {
 
 		return (
 			<div className='boxContainer'>
-				{this.state.alertPop === true && (
-					<Alert variant='danger'>Please select type of food</Alert>
+				{this.state.alertSelectInputType === true && (
+					<Alert variant='danger'>Please select type of food !</Alert>
+				)}
+				{this.state.alertInvalidInput === true && (
+					<Alert variant='danger'>Please insert valid data !</Alert>
 				)}
 
 				<div className='formBox'>
@@ -68,20 +78,21 @@ export default class FoodCalories extends Component {
 							{FoodItems}
 						</DropdownButton>
 
-							<input className='input'
-								type='text'
-								value={this.state.inputText}
-								onChange={this.handleChange}
-								placeholder='please insert number of calories'
-							/>
+						<input
+							className='input'
+							type='text'
+							value={this.state.inputText}
+							onChange={this.handleChange}
+							placeholder='please insert number of calories'
+						/>
 					</div>
-						<Button
-							variant='secondary'
-							size='lg'
-							block
-							onClick={this.handleEnterClick}>
-							Enter
-						</Button>
+					<Button
+						variant='secondary'
+						size='lg'
+						block
+						onClick={this.handleEnterClick}>
+						Enter
+					</Button>
 				</div>
 
 				{this.state.renderTable === true &&
