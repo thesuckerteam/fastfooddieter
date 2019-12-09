@@ -29,8 +29,8 @@ export default class FoodCalories extends Component {
 		)
 			.then(data => data.json())
 			.then(res => this.setState({ food: res }));
-    };
-    
+	};
+
 	render() {
 		return (
 			<FastFoodConsumer>
@@ -55,35 +55,38 @@ export default class FoodCalories extends Component {
 
 					return (
 						<div className='boxContainer'>
-							<div className='inputGroup'>
-								<DropdownButton variant='warning' title={this.state.typeName}>
-									{FoodItems}
-								</DropdownButton>
+							<div className='formBox'>
+								<div className='inputGroup'>
+									<DropdownButton variant='warning' title={this.state.typeName}>
+										{FoodItems}
+									</DropdownButton>
 
-								<div className='input'>
-									<input
-										type='text'
-										size='30'
-										onChange={this.handleChange}
-										placeholder='please insert number of calories'
-									/>
+									<div className='input'>
+										<input
+											type='text'
+											size='30'
+											onChange={this.handleChange}
+											placeholder='please insert number of calories'
+										/>
+									</div>
+								</div>
+								<div>
+									<Button
+										variant='secondary'
+										size='lg'
+										block
+										onClick={() => {
+											this.queryFoodLimit(
+												this.state.typeName,
+												this.state.inputText
+											);
+											this.setState({ renderTable: true });
+										}}>
+										Enter
+									</Button>
 								</div>
 							</div>
-							<div>
-								<Button
-									variant='secondary'
-									size='lg'
-									block
-									onClick={() => {
-										this.queryFoodLimit(
-											this.state.typeName,
-											this.state.inputText
-										);
-										this.setState({ renderTable: true });
-									}}>
-									Enter
-								</Button>
-							</div>
+
 							{this.state.renderTable === true && (
 								<FoodTable food={this.state.food} />
 							)}

@@ -4,6 +4,11 @@
 .table {
 	padding: 50px 200px 0 200px;
 }
+.formBox{
+    margin: 0 600px 0 600px;
+    box-shadow: 12px 12px 15px lightgray;
+
+}
 .inputGroup {
 	margin: 50px;
 	display: flex;
