@@ -68,16 +68,12 @@ export default class FoodCalories extends Component {
 							{FoodItems}
 						</DropdownButton>
 
-						<div className='input'>
-							<input
+							<input className='input'
 								type='text'
-								size='30'
 								onChange={this.handleChange}
 								placeholder='please insert number of calories'
 							/>
-						</div>
 					</div>
-					<div>
 						<Button
 							variant='secondary'
 							size='lg'
@@ -85,7 +81,6 @@ export default class FoodCalories extends Component {
 							onClick={this.handleEnterClick}>
 							Enter
 						</Button>
-					</div>
 				</div>
 
 				{this.state.renderTable === true &&

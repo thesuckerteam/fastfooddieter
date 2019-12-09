@@ -6,15 +6,22 @@
 	padding: 50px 200px 0 200px;
 }
 .formBox{
-    margin: 0 600px 0 600px;
+    padding: 0 140px 30px 140px;
     box-shadow: 12px 12px 15px lightgray;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 20px 350px 0px 350px;
 
 }
 .inputGroup {
-	margin: 50px;
+	margin: 30px;
 	display: flex;
 	justify-content: center;
 }
 .input {
-    margin: 5px 0 0 10px;
+    height: 38px;
+    margin-left: 15px;
+    padding: 0px 10px 0px 10px;
+    direction: RTL;
+
 }
