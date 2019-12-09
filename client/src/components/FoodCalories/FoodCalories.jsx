@@ -10,13 +10,27 @@ export default class FoodCalories extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			foodTypes: ["Burger", "Chicken", "Salad", "Rice"],
+			foodTypes: ["burgers", "chickens", "salads", "rice"],
 			typeName: "Select Food Type",
 			inputText: "",
+			food: [],
 			renderTable: false,
 		};
 	}
-	handleDropdownClick = item => {};
+	handleChange = event => {
+		this.setState({
+			inputText: event.target.value,
+		});
+	};
+
+	queryFoodLimit = (foodName, calories) => {
+		fetch(
+			"http://localhost:9000/foods/" + foodName + "/limit-calories/" + calories
+		)
+			.then(data => data.json())
+			.then(res => this.setState({ food: res }));
+    };
+    
 	render() {
 		return (
 			<FastFoodConsumer>
@@ -39,12 +53,6 @@ export default class FoodCalories extends Component {
 						);
 					});
 
-					const handleChange = event => {
-						this.setState({
-							inputText: event.target.value,
-						});
-					};
-
 					return (
 						<div className='boxContainer'>
 							<div className='inputGroup'>
@@ -56,7 +64,7 @@ export default class FoodCalories extends Component {
 									<input
 										type='text'
 										size='30'
-										onChange={handleChange}
+										onChange={this.handleChange}
 										placeholder='please insert number of calories'
 									/>
 								</div>
@@ -67,6 +75,10 @@ export default class FoodCalories extends Component {
 									size='lg'
 									block
 									onClick={() => {
+										this.queryFoodLimit(
+											this.state.typeName,
+											this.state.inputText
+										);
 										this.setState({ renderTable: true });
 									}}>
 									Enter

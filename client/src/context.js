@@ -23,10 +23,9 @@ class FastFoodProvider extends Component {
 
 	componentDidMount() {
 		// this.queryBurger();
-		this.queryRice();
+		// this.queryRice();
 		// this.queryChicken();
 		// this.querySalad()
-		// this.queryBurgerLimit();
 	}
 	querySalad = () => {
 		fetch("http://localhost:9000/foods/salads")
@@ -77,8 +76,6 @@ class FastFoodProvider extends Component {
 		);
 	}
 }
-
-export const queryBurgerLimit = FastFoodProvider.queryBurger;
 
 const FastFoodConsumer = FastFoodContext.Consumer;
 
