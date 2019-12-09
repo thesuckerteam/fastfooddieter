@@ -43,6 +43,7 @@ export default class FoodCalories extends Component {
 	};
 
 	queryFoodLimit = (foodName, calories) => {
+		this.setState({loadingFood: true});
 		fetch(
 			"http://localhost:9000/foods/" + foodName + "/limit-calories/" + calories
 		)
@@ -60,8 +61,6 @@ export default class FoodCalories extends Component {
 							typeName: item,
 							alertSelectInputType: false,
 							inputText: "",
-							loadingFood: true,
-							renderTable: false,
 						})
 					}>
 					{item}
