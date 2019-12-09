@@ -60,6 +60,8 @@ export default class FoodCalories extends Component {
 							typeName: item,
 							alertSelectInputType: false,
 							inputText: "",
+							loadingFood: true,
+							renderTable: false,
 						})
 					}>
 					{item}
@@ -73,7 +75,7 @@ export default class FoodCalories extends Component {
 					<Alert variant='danger'>Please select type of food !</Alert>
 				)}
 				{this.state.alertInvalidInput === true && (
-					<Alert variant='danger'>Please insert valid data !</Alert>
+					<Alert variant='danger'>Please insert valid number !</Alert>
 				)}
 
 				<div className='formBox'>
