@@ -3,6 +3,8 @@ import { FastFoodConsumer } from "../../context";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
+import Loading from "../../components/Loading/Loading";
+import Alert from "react-bootstrap/Alert";
 import "./style.css";
 import FoodTable from "./FoodTable";
 
@@ -15,12 +17,24 @@ export default class FoodCalories extends Component {
 			inputText: "",
 			food: [],
 			renderTable: false,
+			loadingFood: true,
+			alertPop: false,
 		};
 	}
+
 	handleChange = event => {
 		this.setState({
 			inputText: event.target.value,
 		});
+	};
+
+	handleEnterClick = () => {
+		if (this.state.typeName === "Select Food Type") {
+			this.setState({ alertPop: true });
+		} else {
+			this.queryFoodLimit(this.state.typeName, this.state.inputText);
+			this.setState({ renderTable: true });
+		}
 	};
 
 	queryFoodLimit = (foodName, calories) => {
@@ -28,72 +42,59 @@ export default class FoodCalories extends Component {
 			"http://localhost:9000/foods/" + foodName + "/limit-calories/" + calories
 		)
 			.then(data => data.json())
-			.then(res => this.setState({ food: res }));
+			.then(res => this.setState({ food: res, loadingFood: false }));
 	};
 
 	render() {
+		const FoodItems = this.state.foodTypes.map(item => {
+			return (
+				<Dropdown.Item
+					as='button'
+					onClick={() => this.setState({ typeName: item , alertPop: false})}>
+					{item}
+				</Dropdown.Item>
+			);
+		});
+
 		return (
-			<FastFoodConsumer>
-				{value => {
-					const {
-						calories_salads,
-						calories_chickens,
-						calories_rice,
-						calories_burgers,
-						rice,
-					} = value;
+			<div className='boxContainer'>
+				{this.state.alertPop === true && (
+					<Alert variant='danger'>Please select type of food</Alert>
+				)}
 
-					const FoodItems = this.state.foodTypes.map(item => {
-						return (
-							<Dropdown.Item
-								as='button'
-								onClick={() => this.setState({ typeName: item })}>
-								{item}
-							</Dropdown.Item>
-						);
-					});
+				<div className='formBox'>
+					<div className='inputGroup'>
+						<DropdownButton variant='warning' title={this.state.typeName}>
+							{FoodItems}
+						</DropdownButton>
 
-					return (
-						<div className='boxContainer'>
-							<div className='formBox'>
-								<div className='inputGroup'>
-									<DropdownButton variant='warning' title={this.state.typeName}>
-										{FoodItems}
-									</DropdownButton>
-
-									<div className='input'>
-										<input
-											type='text'
-											size='30'
-											onChange={this.handleChange}
-											placeholder='please insert number of calories'
-										/>
-									</div>
-								</div>
-								<div>
-									<Button
-										variant='secondary'
-										size='lg'
-										block
-										onClick={() => {
-											this.queryFoodLimit(
-												this.state.typeName,
-												this.state.inputText
-											);
-											this.setState({ renderTable: true });
-										}}>
-										Enter
-									</Button>
-								</div>
-							</div>
-
-							{this.state.renderTable === true && (
-								<FoodTable food={this.state.food} />
-							)}
+						<div className='input'>
+							<input
+								type='text'
+								size='30'
+								onChange={this.handleChange}
+								placeholder='please insert number of calories'
+							/>
 						</div>
-					);
-				}}
-			</FastFoodConsumer>
+					</div>
+					<div>
+						<Button
+							variant='secondary'
+							size='lg'
+							block
+							onClick={this.handleEnterClick}>
+							Enter
+						</Button>
+					</div>
+				</div>
+
+				{this.state.renderTable === true &&
+					(this.state.loadingFood === true ? (
+						<Loading name='Data' />
+					) : (
+						<FoodTable food={this.state.food} />
+					))}
+			</div>
 		);
 	}
 }

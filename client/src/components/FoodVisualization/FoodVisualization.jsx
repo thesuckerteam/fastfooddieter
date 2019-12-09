@@ -18,6 +18,7 @@ export default function FoodVisualization() {
 					loadingSalad,
 					loadingRice,
 				} = value;
+				
 				return (
 					<>
 						{loadingBurger === false ? (

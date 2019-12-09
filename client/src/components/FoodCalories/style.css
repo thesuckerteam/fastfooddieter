@@ -1,5 +1,6 @@
 .boxContainer {
-	font-family: "Maven Pro", sans-serif;
+    font-family: "Maven Pro", sans-serif;
+    text-align: center;
 }
 .table {
 	padding: 50px 200px 0 200px;
