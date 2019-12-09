@@ -12,6 +12,7 @@ export default class FoodCalories extends Component {
 		this.state = {
 			foodTypes: ["Burger", "Chicken", "Salad", "Rice"],
 			typeName: "Select Food Type",
+			inputText: "",
 			renderTable: false,
 		};
 	}
@@ -38,6 +39,12 @@ export default class FoodCalories extends Component {
 						);
 					});
 
+					const handleChange = event => {
+						this.setState({
+							inputText: event.target.value,
+						});
+					};
+
 					return (
 						<div className='boxContainer'>
 							<div className='inputGroup'>
@@ -49,6 +56,7 @@ export default class FoodCalories extends Component {
 									<input
 										type='text'
 										size='30'
+										onChange={handleChange}
 										placeholder='please insert number of calories'
 									/>
 								</div>
@@ -58,9 +66,9 @@ export default class FoodCalories extends Component {
 									variant='secondary'
 									size='lg'
 									block
-									onClick={() =>
-										this.setState({ food: rice, renderTable: true })
-									}>
+									onClick={() => {
+										this.setState({ renderTable: true });
+									}}>
 									Enter
 								</Button>
 							</div>

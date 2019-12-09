@@ -3,7 +3,6 @@ import React, { Component } from "react";
 const FastFoodContext = React.createContext();
 
 class FastFoodProvider extends Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -20,28 +19,29 @@ class FastFoodProvider extends Component {
 			loadingSalad: true,
 			loadingRice: true,
 		};
-	  }
-	
+	}
+
 	componentDidMount() {
-        // this.queryBurger();
-        this.queryRice();
-        // this.queryChicken();
+		// this.queryBurger();
+		this.queryRice();
+		// this.queryChicken();
 		// this.querySalad()
-    }
+		// this.queryBurgerLimit();
+	}
 	querySalad = () => {
 		fetch("http://localhost:9000/foods/salads")
 			.then(data => data.json())
-			.then(res => this.setState({salads: res, loadingSalad: false}));
+			.then(res => this.setState({ salads: res, loadingSalad: false }));
 	};
 	queryRice = () => {
 		fetch("http://localhost:9000/foods/rice")
 			.then(data => data.json())
-			.then(res => this.setState({rice: res, loadingRice: false}));
+			.then(res => this.setState({ rice: res, loadingRice: false }));
 	};
 	queryChicken = () => {
 		fetch("http://localhost:9000/foods/chickens")
 			.then(data => data.json())
-			.then(res => this.setState({chickens: res, loadingChicken: false}));
+			.then(res => this.setState({ chickens: res, loadingChicken: false }));
 	};
 	queryBurger = () => {
 		fetch("http://localhost:9000/foods/burgers")
@@ -66,7 +66,7 @@ class FastFoodProvider extends Component {
 	queryBurgerLimit = calories => {
 		fetch("http://localhost:9000/foods/burgers/limit-calories/" + calories)
 			.then(data => data.json())
-			.then(res => this.setState({calories_burgers: res}));
+			.then(res => this.state.calories_burgers.push(res));
 	};
 
 	render() {
@@ -78,6 +78,8 @@ class FastFoodProvider extends Component {
 	}
 }
 
+export const queryBurgerLimit = FastFoodProvider.queryBurger;
+
 const FastFoodConsumer = FastFoodContext.Consumer;
 
-export { FastFoodContext, FastFoodConsumer, FastFoodProvider};
+export { FastFoodContext, FastFoodConsumer, FastFoodProvider };
