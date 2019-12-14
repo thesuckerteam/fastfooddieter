@@ -1,10 +1,12 @@
 # Fast Food Dieter
 
-A companion for your fast food diet guide. Provide essential nutrition facts on every most fast food restaurant.
+A companion for your fast food diet guide. A REST API that provides essential nutrition facts on every most fast food restaurant. Moreover,we provide data visualization which shows all the data from the database.
 
 ## Prerequisites
 
-1. Node.js version 3 or above
+```
+Node.js version 3 or above
+```
 
 ## Installation
 
@@ -20,7 +22,7 @@ $ git clone https://github.com/thesuckerteam/fastfooddieter.git
 $ cd fastfooddieter/
 ```
 
-3. The directory should contain 2 main folders which are client/ and server/ ( for fontend and backend respectively). Thus, open new terminal for running both server locally.
+3. The directory should contain 2 main folders which are client/ and server/ ( for fontend and backend respectively ). Thus, open new terminal for running both server locally.
 
 
 4. Install fontend dependencies and start the client locally.
