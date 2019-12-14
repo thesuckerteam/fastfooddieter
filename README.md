@@ -2,14 +2,6 @@
 
 A companion for your fast food diet guide. Provide essential nutrition facts on every most fast food restaurant.
 
-## Team Members
-
-| GitHub   | Name                   | Student No. | Major                              | Roles     | 
-| -------- | ---------------------- | ----------- | ---------------------------------- | --------- |
-| bankeez  | Piyawat Setthitikun    | 6010545854  | Software and Knowledge Engineering | Developer |
-| kimvcp   | Vichaphol Thamsuthikul | 6010545897  | Software and Knowledge Engineering | Developer |
-| Kittinske15 | Kittin Vatabutr     | 6010546630  | Software and Knowledge Engineering | Developer |
-
 ## Prerequisites
 
 1. Node.js version 3 or above
@@ -71,6 +63,16 @@ $ npm start
 #### Database
 
 - MongoDB
+
+
+## Team Members
+
+| GitHub   | Name                   | Student No. | Major                              | Roles     | 
+| -------- | ---------------------- | ----------- | ---------------------------------- | --------- |
+| bankeez  | Piyawat Setthitikun    | 6010545854  | Software and Knowledge Engineering | Developer |
+| kimvcp   | Vichaphol Thamsuthikul | 6010545897  | Software and Knowledge Engineering | Developer |
+| Kittinske15 | Kittin Vatabutr     | 6010546630  | Software and Knowledge Engineering | Developer |
+
 
 
 
