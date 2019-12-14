@@ -1,0 +1,27 @@
+.boxContainer {
+    font-family: "Maven Pro", sans-serif;
+    text-align: center;
+}
+.table {
+	padding: 50px 200px 0 200px;
+}
+.formBox{
+    padding: 0 140px 30px 140px;
+    box-shadow: 8px 8px 8px lightgray;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 20px 350px 30px 350px;
+
+}
+.inputGroup {
+	margin: 30px;
+	display: flex;
+	justify-content: center;
+}
+.input {
+    height: 38px;
+    margin-left: 15px;
+    padding: 0px 10px 0px 10px;
+    direction: RTL;
+
+}
