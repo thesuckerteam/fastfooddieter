@@ -1,6 +1,6 @@
 # Fast Food Dieter
 
-A companion for your fast food diet guide. A REST API that provides essential nutrition facts on every most fast food restaurant. Moreover,we provide data visualization which shows all the data from the database.
+A companion for your fast food diet guide. A REST API that provides essential nutrition facts on every most fast food restaurant, also with data visualization which shows all the data from the database.
 
 ## Prerequisites
 
