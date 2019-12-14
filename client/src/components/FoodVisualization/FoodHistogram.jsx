@@ -1,26 +1,37 @@
 import React, { Component } from "react";
-import Histogram from 'react-chart-histogram';
+import { Bar } from "react-chartjs-2";
 
 export default class FoodHistogram extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			labels: this.props.name.map(element => element.name),
+			datasets: [
+				{
+					label: "Calories",
+					data: this.props.name.map(element => element.calories),
+					backgroundColor: "#F7D679",
+				},
+			],
 		};
 	}
 	render() {
-        const labels = ['2016', '2017', '2018'];
-        const data = [324, 45, 672];
-        const options = { fillColor: '#FFFFFF', strokeColor: '#0000FF' };
-        return (
-          <div>
-            <Histogram
-                xLabels={labels}
-                yValues={data}
-                width='400'
-                height='200'
-                options={options}
-            />
-          </div>
-        )
-      }
+		return (
+			<div className='center'>
+				<div className='title'>
+					<h3>{this.props.title}</h3>
+				</div>
+				<div className='bar-chart'>
+					<Bar
+						height='50%'
+						data={{
+							labels: this.state.labels,
+							datasets: this.state.datasets,
+						}}
+					/>
+				</div>
+				<br />
+			</div>
+		);
+	}
 }

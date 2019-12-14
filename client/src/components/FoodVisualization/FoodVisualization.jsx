@@ -1,7 +1,8 @@
 import React from "react";
 import { FastFoodConsumer } from "../../context";
-import Navbar from "../NavBar";
 import FoodHistogram from "./FoodHistogram";
+import "./style.css";
+import Loading from "../Loading/Loading";
 
 export default function FoodVisualization() {
 	return (
@@ -11,17 +12,36 @@ export default function FoodVisualization() {
 					salads,
 					rice,
 					chickens,
-					burger,
-					calories_salads,
-					calories_chickens,
-					calories_rice,
-					calories_burgers,
+					burgers,
+					loadingBurger,
+					loadingChicken,
+					loadingSalad,
+					loadingRice,
 				} = value;
+				
 				return (
-				<>
-					<Navbar/>
-					<FoodHistogram/>
-				</>
+					<>
+						{loadingBurger === false ? (
+							<FoodHistogram title='Burger' name={burgers} />
+						) : (
+							<Loading name='Burger' />
+						)}
+						{loadingChicken === false ? (
+							<FoodHistogram title='Chicken' name={chickens} />
+						) : (
+							<Loading name='Chicken' />
+						)}
+						{loadingSalad === false ? (
+							<FoodHistogram title='Salad' name={salads} />
+						) : (
+							<Loading name='Salad' />
+						)}
+						{loadingRice === false ? (
+							<FoodHistogram title='Rice' name={rice} />
+						) : (
+							<Loading name='Rice' />
+						)}
+					</>
 				);
 			}}
 		</FastFoodConsumer>
